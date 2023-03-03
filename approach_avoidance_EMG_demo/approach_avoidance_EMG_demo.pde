@@ -48,12 +48,17 @@ void draw() {
       dsocket.receive(packet);
     
       // Convert the contents to a string, and display them
-      String msg = new String(buffer, 0, packet.getLength());
+      String message = new String(buffer, 0, packet.getLength());
       System.out.println(packet.getAddress().getHostName() + ": "
-          + msg);
+         + message);
+      
+      String[] stringValues = message.split(";");
+
+      int valueChannel0 = Integer.parseInt(stringValues[0]);
+  
+      System.out.println(valueChannel0);
           
       /*
-        
         Your code goes here.
         
         1. Analyze the raw data you receive from the EMG toolkit
@@ -61,11 +66,11 @@ void draw() {
           (a) do nothing; 
           (b) call pushBack(); or 
           (c) call moveForward();
-       
        */
     
       // Reset the length of the packet before reusing it.
       packet.setLength(buffer.length);
+      
     }catch(Exception e){}
   }
 }
