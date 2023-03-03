@@ -54,7 +54,7 @@ void draw() {
       
       String[] stringValues = message.split(";");
 
-      int valueChannel0 = Integer.parseInt(stringValues[0]);
+      int valueChannel0 = Integer.parseInt(stringValues[1]);
   
       System.out.println(valueChannel0);
           
